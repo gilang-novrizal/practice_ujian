@@ -19,8 +19,14 @@ database.connect((err) => {
   console.log("connected as id : " + database.threadId);
 });
 
-const { userRouter } = require("./router");
-app.use("/api", userRouter);
+const {
+  userRouter,
+  productRouter,
+  productCategoryRouter,
+} = require("./router");
+app.use(userRouter);
+app.use(productRouter);
+app.use(productCategoryRouter);
 
 // binding / host in local computer
 const PORT = process.env.PORT;
